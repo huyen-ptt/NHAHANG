@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from demo.web3canvas.com/themeforest/tomato/?storefront=envato-elements by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Oct 2025 03:45:28 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <title>The Kitchen</title>
+    <meta name="author" content="Surjith S M">
+
+    <!-- SEO -->
+    <meta name="description" content="Một không gian ẩm thực Việt giữa lòng sân bay, nơi mỗi vị khách đều được chào đón trước mỗi hành trình">
+    <meta name="keywords" content="bánh mì, bánh bao, html5, restaurant, template, food, reservation">
+
+    <!-- Favicons -->
+    <!-- <link rel="shortcut icon" href="img/favicon.ico"> -->
+
+    <!-- Responsive Tag -->
+    <meta name="viewport" content="width=device-width">
+
+    <!-- CSS Files -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/plugin.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--[if lt IE 9]>
+            <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+        <![endif]-->
+
+    <!-- !!!!!!!!! Please Remove the Facebook Pixel Code below. It was only for Demo Purpose. !!!!!!!!!! -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', '../../../connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1530003103982991');
+        fbq('track', "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1530003103982991&amp;ev=PageView&amp;noscript=1" /></noscript>
+    <!-- /// End Facebook Pixel Code -->
+
+</head>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("reservationform");
+  const resultDiv = document.getElementById("js-reservation-result");
+  const preloader = document.querySelector(".preloder");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    // Hiện preloader (loading)
+    preloader.style.removeProperty("display");
+    preloader.style.removeProperty("opacity");
+    preloader.classList.add("active");
+
+    try {
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        showMessage("Đặt bàn thành công! Chúng tôi sẽ liên hệ lại sớm.", "success");
+        form.reset();
+      } else {
+        showMessage("❌ Gửi thất bại, vui lòng thử lại.", "error");
+      }
+    } catch (err) {
+      showMessage("⚠️ Có lỗi xảy ra, vui lòng thử lại sau.", "error");
+    } finally {
+      // Ẩn preloader
+      preloader.classList.remove("active");
+    }
+  });
+
+  function showMessage(msg, type) {
+    resultDiv.textContent = msg;
+    resultDiv.style.display = "block";
+    resultDiv.style.padding = "12px 18px";
+    resultDiv.style.marginTop = "15px";
+    resultDiv.style.borderRadius = "6px";
+    resultDiv.style.transition = "opacity 0.4s";
+    resultDiv.style.fontWeight = "500";
+    resultDiv.style.fontSize = "15px";
+    resultDiv.style.border = "1px solid";
+    resultDiv.style.textAlign = "center";
+
+    if (type === "success") {
+      resultDiv.style.background = "#fff8f0";
+      resultDiv.style.borderColor = "#dba84e";
+      resultDiv.style.color = "#2b2b2b";
+    } else {
+      resultDiv.style.background = "#fff3f3";
+      resultDiv.style.borderColor = "#c24c38";
+      resultDiv.style.color = "#2b2b2b";
+    }
+
+    setTimeout(() => {
+      resultDiv.style.opacity = "0";
+      setTimeout(() => {
+        resultDiv.style.display = "none";
+        resultDiv.style.opacity = "1";
+      }, 400);
+    }, 4000);
+  }
+});
+</script>
+
+
+
+<body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- Preloder-->
+    <div class="preloder animated">
+        <div class="scoket">
+            <img src="img/preloader.svg" alt="" />
+        </div>
+    </div>
+
+    <div class="body">
+
+        <div class="main-wrapper">
+            <!-- Navigation-->
+            <nav class="navbar navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img width="100px" src="img/THEKITCHEN-logo-opt-04.png" alt="nav-logo">
+                        </a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true"
+                                    aria-expanded="false">Trang chủ<span class="caret"></span></a>
+
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#datban" class="dropdown-toggle" role="button" aria-haspopup="true"
+                                    aria-expanded="false">Đặt bàn<span class="caret"></span></a>
+
+                            </li>
+                            <li class="dropdown">
+                                <a href="#thucdon" class="dropdown-toggle" role="button" aria-haspopup="true"
+                                    aria-expanded="false">Thực đơn<span class="caret"></span></a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!--/.navbar-collapse -->
+                </div>
+            </nav>
+
+            <!-- Home page-->
+            <section class="home">
+                <div class="tittle-block">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="img/THEKITCHEN-logo-opt-04.png" class="logo2" alt="logo">
+                        </a>
+                    </div>
+                    <h1>FRESH AND FAST</h1>
+                    <h2> Khởi đầu hành trình của bạn với tinh hoa ẩm thực Việt</h2>
+                </div>
+                <div class="scroll-down hidden-xs">
+                    <a href="#about">
+                        <img src="img/arrow-down.png" alt="down-arrow">
+                    </a>
+                </div>
+            </section>
+
+            <!-- About page-->
+            <section class="about" id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header wow fadeInDown">
+                                <h1>THE KITCHEN<small>CÂU CHUYỆN THƯƠNG HIỆU VÀ SỨ MỆNH</small></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row wow fadeInUp">
+                        <div class="col-md-4">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 hidden-sm about-photo">
+                                        <div class="image-thumb">
+                                            <img height="200px" width="100%" src="img/anh3.jpg"
+                                                data-mfp-src="img/fullImages/pic1.jpg" class="img-ab" alt="logo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 about-photo hidden-xs">
+                                        <img height="130px" width="100%" src="img/anh2.jpg"
+                                            data-mfp-src="img/fullImages/pic2.jpg" class="img-ab" alt="logo">
+                                    </div>
+                                    <div class="col-sm-6 about-photo hidden-xs">
+                                        <img height="130px" width="100%" src="img/anh1.jpg"
+                                            data-mfp-src="img/fullImages/pic3.jpg" class="img-ab" alt="logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <p style="text-align: justify;">
+                                Được hình thành từ sự thấu hiểu sâu sắc về nhu cầu của hành khách khi sử dụng dịch vụ ẩm
+                                thực tại sân bay, The Kitchen ra đời với sứ mệnh: Mang đến một không gian thưởng thức ấm
+                                cúng, tiện nghi và đậm đà bản sắc Việt Nam. Mỗi món ăn không chỉ là hương vị mà còn là
+                                câu chuyện về văn hoá, mang lại cảm nhận trọn vẹn tinh hoa ẩm thực Việt giữa hành
+                                trình di chuyển tất bật.
+                            </p>
+                            <br>
+                            <p style="text-align: justify;">
+                                Chúng tôi mong muốn trở thành điểm dừng chân tin cậy của mọi hành khách – nơi không chỉ
+                                để nghỉ ngơi, thư giãn mà còn để tận hưởng những trải nghiệm ẩm thực độc đáo, giàu cảm
+                                xúc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Reservations page-->
+            <section class="reservation" id="datban">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header wow fadeInDown">
+                                <h1>THÔNG TIN ĐẶT BÀN
+                                    <small>Đặt bàn trực tuyến. Thông tin sẽ được gửi về email của bạn.</small>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reservation-form wow fadeInUp">
+                        <form  
+                            id="reservationform" method="POST">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="datepicker">Ngày</label>
+                                        <input type="text" name="date" class="form-control" id="datepicker"
+                                            placeholder="Chọn ngày" title="Vui lòng chọn ngày" required>
+                                        <i class="fa fa-calendar-o"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="name">Họ và tên</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            placeholder="Nhập họ và tên" title="Vui lòng nhập đầy đủ họ tên" required>
+                                        <i class="fa fa-pencil-square-o"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="timepicker">Giờ</label>
+                                        <input type="text" class="form-control" id="timepicker" name="time"
+                                            placeholder="Chọn giờ" title="Vui lòng chọn giờ mong muốn" required>
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Địa điểm -->
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="location">Địa điểm</label>
+                                        <input type="text" class="form-control" id="location" name="location"
+                                            placeholder="Nhập địa điểm" title="Vui lòng nhập địa điểm" required>
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Chuyến bay -->
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="flight">Chuyến bay</label>
+                                        <input type="text" class="form-control" id="flight" name="flight"
+                                            placeholder="Nhập số chuyến bay (nếu có)"
+                                            title="Vui lòng nhập số chuyến bay nếu có">
+                                        <i class="fa fa-plane"></i>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">Địa chỉ Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Nhập địa chỉ email" title="Vui lòng nhập email của bạn"
+                                            required>
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="guests">Số lượng khách</label>
+                                        <input class="form-control" type="number" id="guests" name="guests"
+                                            placeholder="Bao nhiêu người?" title="Vui lòng nhập số lượng khách"
+                                            required>
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="phone">Số điện thoại</label>
+                                        <input type="text" class="form-control" id="phone" name="phone"
+                                            placeholder="Nhập số điện thoại của bạn" title="Vui lòng nhập số điện thoại"
+                                            required>
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="reservation-btn">
+                                        <button type="submit" class="btn btn-default btn-lg" >Đặt
+                                            bàn</button>
+                                        <div id="js-reservation-result" data-success-msg="Gửi thông tin thành công."
+                                            data-error-msg="Rất tiếc, có lỗi xảy ra."></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="reservation-footer">
+                        <p>Bạn cũng có thể gọi tới: <strong>+84 90 2222 13 82</strong> để đặt bàn trực tiếp.</p>
+                        <span></span>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- Our features-->
+            <section class="features">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header wow fadeInDown">
+                                <h1 class="white">HỆ THỐNG THE KITCHEN<small>Những nhà hàng thuộc hệ thống The
+                                        Kitchen</small></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row wow fadeInUp" style="display: flex; justify-content: center;">
+
+                        <div class="col-md-7 col-sm-8">
+                            <div class="features-tile">
+                                <div class="features-img">
+                                    <img src="img/grhieu.jpg" alt="" />
+                                </div>
+                                <div class="features-content">
+                                    <div class="page-header">
+                                        <h1 style="text-align: center;">THE KITCHEN - NHÀ GA T3</h1>
+
+                                        <h1 style="text-align: center;"><i>SÂN BAY TÂN SƠN NHẤT, TP.HCM, VIỆT NAM</i>
+                                        </h1>
+                                    </div>
+                                    <p>Một không gian ẩm thực Việt giữa lòng sân bay, nơi mỗi vị khách đều được chào đón
+                                        trước mỗi hành trình</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 visible-sm">
+                            <div class="features-tile">
+                                <div class="features-img">
+                                    <img src="img/bannernh.jpg" alt="" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- menu-->
+            <section class="menu" id="thucdon">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header wow fadeInDown">
+                                <h1>THỰC ĐƠN<small>Những món ăn được chế biến từ nguyên liệu tốt nhất</small></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="food-menu wow fadeInUp">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="menu-tags">
+                                    <span data-filter=".starter" class="tagsort-active">PHỞ</span>
+                                    <span data-filter=".breakfast">MÌ</span>
+                                    <span data-filter=".dinner">BÁNH MÌ</span>
+                                    <span data-filter=".bb">BÁNH BAO</span>
+                                    <!-- <span data-filter="*">BÁNH BAO</span> -->
+                                    <span data-filter=".lunch">ĂN NHẸ</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row menu-items">
+                            <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh bao thịt heo trứng cút</h4>
+                                    <span class="price">58.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>Pork Bun with quail eggs</p>
+                            </div>
+                            <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh bao xá xíu</h4>
+                                    <span class="price">48.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>Char siu bun</p>
+                            </div>
+                            <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh bao Cadé</h4>
+                                    <span class="price">48.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>Custard bun </p>
+                            </div>
+                            <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh bao trái đào</h4>
+                                    <span class="price">48.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>Peach-shaped bun</p>
+                            </div>
+                            <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh giò</h4>
+                                    <span class="price">48.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>Steamed rice dumpling</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 starter">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Phở Đặc Biệt</h4>
+                                    <span class="price">118.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>SPECIAL PHO</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 starter">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Phở Tái | Chín | Nạm | Gầu</h4>
+                                    <span class="price">98.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>PHO WITH RARE BEEF | WELL-DONE BRISKET | FLANK | FATTY BRISKET</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 starter">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Trứng Chần</h4>
+                                    <span class="price">25.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>POACHED EGG</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 breakfast">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Mì Hoành Thánh Nước</h4>
+                                    <span class="price">98.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>WONTON NOODLES SOUP</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 breakfast">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Mì Hoành Thánh Khô</h4>
+                                    <span class="price">98.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>DRY WONTON NOODLES</p>
+                            </div>
+                            <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh Mì Xíu Mại</h4>
+                                    <span class="price">85.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>VIETNAMESE BAGUETTE WITH MEATBALLS IN TOMATO SAUCE</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh Mì Gà Nướng</h4>
+                                    <span class="price">68.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>GRILLED CHICKEN BANH MI</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh Mì Trứng</h4>
+                                    <span class="price">55.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>EGG BANH MI</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Bánh Mì Thịt Viên Nướng</h4>
+                                    <span class="price">68.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>GRILLED MEATBALL BANH MI</p>
+                            </div>
+                            <div class="menu-item col-sm-6 col-xs-12 lunch">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Chả Giò Hải Sản</h4>
+                                    <span class="price">60.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>SEAFOOD SPRING ROLLS</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 lunch">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Chả Giò Thịt</h4>
+                                    <span class="price">60.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>MEAT SPRING ROLLS</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 lunch">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Hoành Thánh Chiên</h4>
+                                    <span class="price">50.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>FRIED WONTONS</p>
+                            </div>
+
+                            <div class="menu-item col-sm-6 col-xs-12 lunch">
+                                <div class="clearfix menu-wrapper">
+                                    <h4>Khoai Tây Chiên</h4>
+                                    <span class="price">50.000</span>
+                                    <div class="dotted-bg"></div>
+                                </div>
+                                <p>FRENCH FRIES</p>
+                            </div>
+
+
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <div class="menu-btn">
+                                    <a class="btn btn-default btn-lg" href="menu_all.html" role="button">Explore our
+                                        menu</a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- Footer-->
+            <section class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <h1>Về chúng tôi</h1>
+                            <p style="text-align: justify;">Được hình thành từ sự thấu hiểu sâu sắc về nhu cầu của hành
+                                khách khi sử dụng dịch vụ ẩm
+                                thực tại sân bay, The Kitchen ra đời với sứ mệnh: Mang đến một không gian thưởng thức ấm
+                                cúng, tiện nghi và đậm đà bản sắc Việt Nam. Mỗi món ăn không chỉ là hương vị mà còn là
+                                câu chuyện về văn hoá, mang lại cảm nhận trọn vẹn tinh hoa ẩm thực Việt giữa hành
+                                trình di chuyển tất bật.</p>
+                        </div>
+
+
+                        <div class="col-md-6 col-sm-6">
+                            <h1>Liên hệ</h1>
+
+                            <div class="footer-address">
+                                <p><i class="fa fa-map-marker"></i>82 Nguyen Huu Huan Street, Hoan Kiem Ward, Hanoi</p>
+                                <p><i class="fa fa-phone"></i>Phone: +84 90 2222 13 82</p>
+                                <p><i class="fa fa-envelope-o"></i><a style="color:#bcbcbc ;"
+                                        href="mailto:info@consortio.vn" class="__cf_email__">info@consortio.vn</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+        </div>
+
+    </div>
+
+    <!-- STYLE SWITCHER 
+============================================= -->
+    <div class="b-settings-panel">
+        <div class="settings-section">
+            <span>
+                Boxed
+            </span>
+            <div class="b-switch">
+                <div class="switch-handle"></div>
+            </div>
+            <span>
+                Wide
+            </span>
+        </div>
+        <hr class="dashed" style="margin: 15px 0px;">
+        <h5>Main Background</h5>
+        <div class="settings-section bg-list">
+            <div class="bg-wood_pattern"></div>
+            <div class="bg-shattered"></div>
+            <div class="bg-vichy"></div>
+            <div class="bg-random-grey-variations"></div>
+            <div class="bg-irongrip"></div>
+            <div class="bg-gplaypattern"></div>
+            <div class="bg-diamond_upholstery"></div>
+            <div class="bg-denim"></div>
+            <div class="bg-crissXcross"></div>
+            <div class="bg-climpek"></div>
+        </div>
+        <hr class="dashed" style="margin: 15px 0px;">
+        <h5>Color Scheme</h5>
+        <div class="settings-section color-list">
+            <div data-src="css/themes/blue.css" style="background: #45b5f5"></div>
+            <div data-src="css/themes/brown.css" style="background: #dc8068"></div>
+            <div data-src="css/themes/cyan.css" style="background: #00becc"></div>
+            <div data-src="css/themes/green.css" style="background: #5bb75b"></div>
+            <div data-src="css/themes/orange.css" style="background: #ff7149"></div>
+            <div data-src="css/themes/pink.css" style="background: #fba1a1"></div>
+            <div data-src="css/themes/red.css" style="background: #dc3522"></div>
+            <div data-src="css/themes/yellow.css" style="background: #fdb813"></div>
+        </div>
+
+        <a data-src="css/style.css" class="reset"><span class="bg-wood_pattern">Reset</span></a>
+
+        <div class="btn-settings"></div>
+    </div>
+    <!-- END STYLE SWITCHER 
+============================================= -->
+
+    <!-- Javascript -->
+    <!-- <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/jquery.flexslider-min.js"></script>
+    <script src="js/vendor/spectragram.js"></script>
+    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/velocity.min.js"></script>
+    <script src="js/vendor/velocity.ui.min.js"></script>
+    <script src="js/vendor/bootstrap-datepicker.min.js"></script>
+    <script src="js/vendor/bootstrap-clockpicker.min.js"></script>
+    <script src="js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="js/vendor/isotope.pkgd.min.js"></script>
+    <script src="js/vendor/slick.min.js"></script>
+    <script src="js/vendor/wow.min.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/vendor/vegas/vegas.min.js"></script>
+    <script src="js/vendor/jquery.mb.YTPlayer.js"></script>
+    <script src="js/vendor/jquery.stellar.js"></script>
+    <script src="js/vendor/mc/jquery.ketchup.all.min.js"></script>
+    <script src="js/vendor/mc/main.js"></script>
+    <script src="js/vendor/validate.js"></script>
+    <script src="js/reservation.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+        data-cf-beacon='{"version":"2024.11.0","token":"1a2187940c214caa9d3fed19b4904902","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+        crossorigin="anonymous"></script> -->
+</body>
+
+
+<!-- Mirrored from demo.web3canvas.com/themeforest/tomato/?storefront=envato-elements by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Oct 2025 03:45:55 GMT -->
+
+</html>
+<style>
+    .caret {
+        display: none;
+    }
+</style>
