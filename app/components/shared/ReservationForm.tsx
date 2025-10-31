@@ -1,4 +1,4 @@
-"use client"; // 👈 Bắt buộc vì form này dùng event client-side
+"use client";
 
 import { FormEvent, useState } from "react";
 
@@ -14,16 +14,50 @@ export default function ReservationForm() {
     phone: "",
   });
 
-  // Cập nhật state khi người dùng gõ
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // Cập nhật khi nhập
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Xử lý khi submit form
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault(); // chặn reload trang
-    console.log("Dữ liệu form:", formData);
+  // Submit form
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        setMessage("✅ Đặt bàn thành công! Chúng tôi sẽ liên hệ sớm.");
+        setFormData({
+          date: "",
+          name: "",
+          time: "",
+          location: "",
+          flight: "",
+          email: "",
+          guests: "",
+          phone: "",
+        });
+      } else {
+        setMessage("❌ Có lỗi xảy ra: " + result.error);
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage("❌ Không thể gửi thông tin. Vui lòng thử lại.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -37,6 +71,7 @@ export default function ReservationForm() {
               type="text"
               name="date"
               id="datepicker"
+              data-date-format="dd/mm/yyyy"
               className="form-control"
               placeholder="Chọn ngày"
               required
@@ -175,11 +210,22 @@ export default function ReservationForm() {
         {/* Nút submit */}
         <div className="col-md-12 col-sm-12">
           <div className="reservation-btn">
-            <button type="submit" className="btn btn-default btn-lg">
-              Đặt bàn
+            <button
+              type="submit"
+              className="btn btn-default btn-lg"
+              disabled={loading}
+            >
+              {loading ? "Đang gửi..." : "Đặt bàn"}
             </button>
           </div>
         </div>
+
+        {/* Thông báo kết quả */}
+        {message && (
+          <div className="col-md-12 text-center" style={{ marginTop: "10px" }}>
+            <p>{message}</p>
+          </div>
+        )}
       </div>
     </form>
   );
