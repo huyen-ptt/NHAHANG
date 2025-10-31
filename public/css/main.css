@@ -4413,3 +4413,6 @@ textarea {
     background-attachment: scroll;
   }
 }
+ .caret {
+        display: none;
+    }
