@@ -1,5 +1,7 @@
-
 import PreOrder from "./shared/preOrder";
+import NavBar from "./navBar";
+import ReservationForm from "./shared/ReservationForm";
+import SettingsPanel from "./shared/settings-panel";
 
 export default function HomeComponent() {
     return (
@@ -22,28 +24,7 @@ export default function HomeComponent() {
                                     <img width="100px" src="/img/THEKITCHEN-logo-opt-04.png" alt="nav-logo" />
                                 </a>
                             </div>
-                            <div id="navbar" className="navbar-collapse collapse">
-                                <ul className="nav navbar-nav navbar-right">
-                                    <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" role="button" aria-haspopup="true"
-                                            aria-expanded="false">Trang chủ<span className="caret"></span></a>
-
-                                    </li>
-
-                                    <li className="dropdown">
-                                        <a href="#datban" className="dropdown-toggle" role="button" aria-haspopup="true"
-                                            aria-expanded="false">Đặt bàn<span className="caret"></span></a>
-
-                                    </li>
-                                    <li className="dropdown">
-                                        <a href="#thucdon" className="dropdown-toggle" role="button" aria-haspopup="true"
-                                            aria-expanded="false">Thực đơn<span className="caret"></span></a>
-
-                                    </li>
-
-                                </ul>
-                            </div>
-                            {/*/.navbar-collapse */}
+                            <NavBar />
                         </div>
                     </nav>
 
@@ -131,92 +112,8 @@ export default function HomeComponent() {
                                 </div>
                             </div>
                             <div className="reservation-form wow fadeInUp">
-                                <form
-                                    id="reservationform" method="POST">
-                                    <div className="row">
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="datepicker">Ngày</label>
-                                                <input type="text" name="date" className="form-control" id="datepicker"
-                                                    placeholder="Chọn ngày" title="Vui lòng chọn ngày" required />
-                                                <i className="fa fa-calendar-o"></i>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="name">Họ và tên</label>
-                                                <input type="text" className="form-control" id="name" name="name"
-                                                    placeholder="Nhập họ và tên" title="Vui lòng nhập đầy đủ họ tên" required />
-                                                <i className="fa fa-pencil-square-o"></i>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="timepicker">Giờ</label>
-                                                <input type="text" className="form-control" id="timepicker" name="time"
-                                                    placeholder="Chọn giờ" title="Vui lòng chọn giờ mong muốn" required />
-                                                <i className="fa fa-clock-o"></i>
-                                            </div>
-                                        </div>
+                                <ReservationForm />
 
-                                        {/* Địa điểm */}
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="location">Địa điểm</label>
-                                                <input type="text" className="form-control" id="location" name="location"
-                                                    placeholder="Nhập địa điểm" title="Vui lòng nhập địa điểm" required />
-                                                <i className="fa fa-map-marker"></i>
-                                            </div>
-                                        </div>
-
-                                        {/* Chuyến bay */}
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="flight">Chuyến bay</label>
-                                                <input type="text" className="form-control" id="flight" name="flight"
-                                                    placeholder="Nhập số chuyến bay (nếu có)"
-                                                    title="Vui lòng nhập số chuyến bay nếu có" />
-                                                <i className="fa fa-plane"></i>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="email">Địa chỉ Email</label>
-                                                <input type="email" className="form-control" id="email" name="email"
-                                                    placeholder="Nhập địa chỉ email" title="Vui lòng nhập email của bạn"
-                                                    required />
-                                                <i className="fa fa-envelope-o"></i>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="guests">Số lượng khách</label>
-                                                <input className="form-control" type="number" id="guests" name="guests"
-                                                    placeholder="Bao nhiêu người?" title="Vui lòng nhập số lượng khách"
-                                                    required />
-                                                <i className="fa fa-user"></i>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4 col-sm-6">
-                                            <div className="form-group">
-                                                <label htmlFor="phone">Số điện thoại</label>
-                                                <input type="text" className="form-control" id="phone" name="phone"
-                                                    placeholder="Nhập số điện thoại của bạn" title="Vui lòng nhập số điện thoại"
-                                                    required />
-                                                <i className="fa fa-phone"></i>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-12 col-sm-12">
-                                            <div className="reservation-btn">
-                                                <button type="submit" className="btn btn-default btn-lg" >Đặt
-                                                    bàn</button>
-                                                <div id="js-reservation-result" data-success-msg="Gửi thông tin thành công."
-                                                    data-error-msg="Rất tiếc, có lỗi xảy ra."></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                             <div className="reservation-footer">
                                 <p>Bạn cũng có thể gọi tới: <strong>+84 90 2222 13 82</strong> để đặt bàn trực tiếp.</p>
@@ -268,7 +165,6 @@ export default function HomeComponent() {
                             </div>
                         </div>
                     </section>
-
                     {/* menu */}
                     <section className="menu" id="thucdon">
                         <div className="container">
@@ -494,56 +390,10 @@ export default function HomeComponent() {
                                 </div>
                             </div>
                         </div>
-
-
                     </section>
                 </div>
-
             </div>
-
-                <div className="b-settings-panel">
-        <div className="settings-section">
-            <span>
-                Boxed
-            </span>
-            <div className="b-switch">
-                <div className="switch-handle"></div>
-            </div>
-            <span>
-                Wide
-            </span>
-        </div>
-        <hr className="dashed" style={{ margin: "15px 0px" }} />
-        <h5>Main Background</h5>
-        <div className="settings-section bg-list">
-            <div className="bg-wood_pattern"></div>
-            <div className="bg-shattered"></div>
-            <div className="bg-vichy"></div>
-            <div className="bg-random-grey-variations"></div>
-            <div className="bg-irongrip"></div>
-            <div className="bg-gplaypattern"></div>
-            <div className="bg-diamond_upholstery"></div>
-            <div className="bg-denim"></div>
-            <div className="bg-crissXcross"></div>
-            <div className="bg-climpek"></div>
-        </div>
-        <hr className="dashed" style={{ margin: "15px 0px" }} />
-        <h5>Color Scheme</h5>
-        <div className="settings-section color-list">
-            <div data-src="css/themes/blue.css" style={{ background: "#45b5f5" }}></div>
-            <div data-src="css/themes/brown.css" style={{ background: "#dc8068" }}></div>
-            <div data-src="css/themes/cyan.css" style={{ background: "#00becc" }}></div>
-            <div data-src="css/themes/green.css" style={{ background: "#5bb75b" }}></div>
-            <div data-src="css/themes/orange.css" style={{ background: "#ff7149" }}></div>
-            <div data-src="css/themes/pink.css" style={{ background: "#fba1a1" }}></div>
-            <div data-src="css/themes/red.css" style={{ background: "#dc3522" }}></div>
-            <div data-src="css/themes/yellow.css" style={{ background: "#fdb813" }}></div>
-        </div>
-
-        <a data-src="css/style.css" className="reset"><span className="bg-wood_pattern">Reset</span></a>
-
-        <div className="btn-settings"></div>
-    </div>
+            <SettingsPanel />
         </>
     );
 }
