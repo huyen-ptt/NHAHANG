@@ -425,11 +425,10 @@ $(function() {
     //Datepicker
     if ($('#datepicker').length) {
         $("#datepicker").datepicker({
-            dateFormat: 'mm/dd/yy',
+            dateFormat: 'dd/mm/yyyy',
             startDate: '0',
             autoclose: true,
-            todayHighlight: true
-
+            todayHighlight: true,
         });
     }
 
