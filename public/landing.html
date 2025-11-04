@@ -10,7 +10,8 @@
     <meta name="author" content="Surjith S M">
 
     <!-- SEO -->
-    <meta name="description" content="Một không gian ẩm thực Việt giữa lòng sân bay, nơi mỗi vị khách đều được chào đón trước mỗi hành trình">
+    <meta name="description"
+        content="Một không gian ẩm thực Việt giữa lòng sân bay, nơi mỗi vị khách đều được chào đón trước mỗi hành trình">
     <meta name="keywords" content="bánh mì, bánh bao, html5, restaurant, template, food, reservation">
 
     <!-- Favicons -->
@@ -62,72 +63,72 @@
 </head>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("reservationform");
-  const resultDiv = document.getElementById("js-reservation-result");
-  const preloader = document.querySelector(".preloder");
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("reservationform");
+        const resultDiv = document.getElementById("js-reservation-result");
+        const preloader = document.querySelector(".preloder");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
 
-    // Hiện preloader (loading)
-    preloader.style.removeProperty("display");
-    preloader.style.removeProperty("opacity");
-    preloader.classList.add("active");
+            // Hiện preloader (loading)
+            preloader.style.removeProperty("display");
+            preloader.style.removeProperty("opacity");
+            preloader.classList.add("active");
 
-    try {
-      const response = await fetch("/api/booking", {
-        method: "POST",
-        body: formData,
-      });
-      const result = await response.json();
+            try {
+                const response = await fetch("/api/booking", {
+                    method: "POST",
+                    body: formData,
+                });
+                const result = await response.json();
 
-      if (result.success) {
-        showMessage("Đặt bàn thành công! Chúng tôi sẽ liên hệ lại sớm.", "success");
-        form.reset();
-      } else {
-        showMessage("❌ Gửi thất bại, vui lòng thử lại.", "error");
-      }
-    } catch (err) {
-      showMessage("⚠️ Có lỗi xảy ra, vui lòng thử lại sau.", "error");
-    } finally {
-      // Ẩn preloader
-      preloader.classList.remove("active");
-    }
-  });
+                if (result.success) {
+                    showMessage("Đặt bàn thành công! Chúng tôi sẽ liên hệ lại sớm.", "success");
+                    form.reset();
+                } else {
+                    showMessage("❌ Gửi thất bại, vui lòng thử lại.", "error");
+                }
+            } catch (err) {
+                showMessage("⚠️ Có lỗi xảy ra, vui lòng thử lại sau.", "error");
+            } finally {
+                // Ẩn preloader
+                preloader.classList.remove("active");
+            }
+        });
 
-  function showMessage(msg, type) {
-    resultDiv.textContent = msg;
-    resultDiv.style.display = "block";
-    resultDiv.style.padding = "12px 18px";
-    resultDiv.style.marginTop = "15px";
-    resultDiv.style.borderRadius = "6px";
-    resultDiv.style.transition = "opacity 0.4s";
-    resultDiv.style.fontWeight = "500";
-    resultDiv.style.fontSize = "15px";
-    resultDiv.style.border = "1px solid";
-    resultDiv.style.textAlign = "center";
+        function showMessage(msg, type) {
+            resultDiv.textContent = msg;
+            resultDiv.style.display = "block";
+            resultDiv.style.padding = "12px 18px";
+            resultDiv.style.marginTop = "15px";
+            resultDiv.style.borderRadius = "6px";
+            resultDiv.style.transition = "opacity 0.4s";
+            resultDiv.style.fontWeight = "500";
+            resultDiv.style.fontSize = "15px";
+            resultDiv.style.border = "1px solid";
+            resultDiv.style.textAlign = "center";
 
-    if (type === "success") {
-      resultDiv.style.background = "#fff8f0";
-      resultDiv.style.borderColor = "#dba84e";
-      resultDiv.style.color = "#2b2b2b";
-    } else {
-      resultDiv.style.background = "#fff3f3";
-      resultDiv.style.borderColor = "#c24c38";
-      resultDiv.style.color = "#2b2b2b";
-    }
+            if (type === "success") {
+                resultDiv.style.background = "#fff8f0";
+                resultDiv.style.borderColor = "#dba84e";
+                resultDiv.style.color = "#2b2b2b";
+            } else {
+                resultDiv.style.background = "#fff3f3";
+                resultDiv.style.borderColor = "#c24c38";
+                resultDiv.style.color = "#2b2b2b";
+            }
 
-    setTimeout(() => {
-      resultDiv.style.opacity = "0";
-      setTimeout(() => {
-        resultDiv.style.display = "none";
-        resultDiv.style.opacity = "1";
-      }, 400);
-    }, 4000);
-  }
-});
+            setTimeout(() => {
+                resultDiv.style.opacity = "0";
+                setTimeout(() => {
+                    resultDiv.style.display = "none";
+                    resultDiv.style.opacity = "1";
+                }, 400);
+            }, 4000);
+        }
+    });
 </script>
 
 
@@ -271,8 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
                     <div class="reservation-form wow fadeInUp">
-                        <form  
-                            id="reservationform" method="POST">
+                        <form id="reservationform" method="POST">
                             <div class="row">
                                 <div class="col-md-4 col-sm-6">
                                     <div class="form-group">
@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                                 <div class="col-md-12 col-sm-12">
                                     <div class="reservation-btn">
-                                        <button type="submit" class="btn btn-default btn-lg" >Đặt
+                                        <button type="submit" class="btn btn-default btn-lg">Đặt
                                             bàn</button>
                                         <div id="js-reservation-result" data-success-msg="Gửi thông tin thành công."
                                             data-error-msg="Rất tiếc, có lỗi xảy ra."></div>
@@ -434,15 +434,19 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
                         </div>
                         <div class="row menu-items">
-                            <div class="menu-item col-sm-6 col-xs-12 bb">
-                                <div class="clearfix menu-wrapper">
-                                    <h4>Bánh bao thịt heo trứng cút</h4>
-                                    <span class="price">58.000</span>
-                                    <div class="dotted-bg"></div>
+                            <div class="menu-item col-sm-6 col-xs-12 bb d-flex">
+                                <img width="100px" src="./img/BB-Thit-Heo-Trung-Cut-1.jpg">
+                                <div>
+                                    <div class="clearfix menu-wrapper">
+                                        <h4>Bánh bao thịt heo trứng cút</h4>
+                                        <span class="price">58.000</span>
+                                        <div class="dotted-bg"></div>
+                                    </div>
+                                    <p>Pork Bun with quail eggs</p>
                                 </div>
-                                <p>Pork Bun with quail eggs</p>
                             </div>
                             <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <img width="100px" src="./img/BB-Xa-Xiu-1.jpg">
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh bao xá xíu</h4>
                                     <span class="price">48.000</span>
@@ -451,6 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p>Char siu bun</p>
                             </div>
                             <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <img width="100px" src="./img/Cade-1.jpg">
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh bao Cadé</h4>
                                     <span class="price">48.000</span>
@@ -459,6 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p>Custard bun </p>
                             </div>
                             <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <img width="100px" src="./img/Banh-Trai-Dao-1.jpg">
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh bao trái đào</h4>
                                     <span class="price">48.000</span>
@@ -467,6 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p>Peach-shaped bun</p>
                             </div>
                             <div class="menu-item col-sm-6 col-xs-12 bb">
+                                <img width="100px" src="./img/banh-gio-3314.jpg">
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh giò</h4>
                                     <span class="price">48.000</span>
@@ -520,6 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p>DRY WONTON NOODLES</p>
                             </div>
                             <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <img width="100px" src="./img/BM1.jpg">
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh Mì Xíu Mại</h4>
                                     <span class="price">85.000</span>
@@ -529,6 +537,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
 
                             <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <img width="100px" height="64px" src="./img/BM3.jpg">
+
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh Mì Gà Nướng</h4>
                                     <span class="price">68.000</span>
@@ -538,6 +548,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
 
                             <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <img width="100px" src="./img/BM2.jpg">
+
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh Mì Trứng</h4>
                                     <span class="price">55.000</span>
@@ -547,6 +559,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
 
                             <div class="menu-item col-sm-6 col-xs-12 dinner">
+                                <img width="100px" src="./img/BM4.jpg">
+
                                 <div class="clearfix menu-wrapper">
                                     <h4>Bánh Mì Thịt Viên Nướng</h4>
                                     <span class="price">68.000</span>
