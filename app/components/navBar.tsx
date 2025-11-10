@@ -10,15 +10,21 @@ export default function NavBar() {
                     </li>
 
                     <li className="dropdown">
-                        <a href="#datban" className="dropdown-toggle" role="button" aria-haspopup="true"
-                            aria-expanded="false">Đặt bàn<span className="caret"></span></a>
-
-                    </li>
-                    <li className="dropdown">
                         <a href="#thucdon" className="dropdown-toggle" role="button" aria-haspopup="true"
                             aria-expanded="false">Thực đơn<span className="caret"></span></a>
 
                     </li>
+                    <li className="dropdown">
+                        <a href="#km" className="dropdown-toggle" role="button" aria-haspopup="true"
+                            aria-expanded="false">Khuyến mãi<span className="caret"></span></a>
+
+                    </li>
+                    <li className="dropdown">
+                        <a href="#datban" className="dropdown-toggle" role="button" aria-haspopup="true"
+                            aria-expanded="false">Đặt bàn<span className="caret"></span></a>
+
+                    </li>
+
 
                 </ul>
             </div>

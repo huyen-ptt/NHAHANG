@@ -136,51 +136,16 @@ export default function ReservationForm() {
           </div>
         </div>
 
-        {/* Chuyến bay */}
-        <div className="col-md-4 col-sm-6">
-          <div className="form-group">
-            <label htmlFor="flight">Chuyến bay</label>
-            <input
-              type="text"
-              name="flight"
-              id="flight"
-              className="form-control"
-              placeholder="Nhập số chuyến bay (nếu có)"
-              value={formData.flight}
-              onChange={handleChange}
-            />
-            <i className="fa fa-plane"></i>
-          </div>
-        </div>
-
-        {/* Email */}
-        <div className="col-md-4 col-sm-6">
-          <div className="form-group">
-            <label htmlFor="email">Địa chỉ Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="form-control"
-              placeholder="Nhập địa chỉ email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <i className="fa fa-envelope-o"></i>
-          </div>
-        </div>
-
         {/* Số lượng khách */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="guests">Số lượng khách</label>
+            <label htmlFor="guests">Email</label>
             <input
-              type="number"
+              type="email"
               name="guests"
               id="guests"
               className="form-control"
-              placeholder="Bao nhiêu người?"
+              placeholder="Email"
               required
               value={formData.guests}
               onChange={handleChange}
