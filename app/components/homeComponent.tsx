@@ -2,6 +2,7 @@ import PreOrder from "./shared/preOrder";
 import NavBar from "./navBar";
 import ReservationForm from "./shared/ReservationForm";
 import SettingsPanel from "./shared/settings-panel";
+import Image from "next/image";
 
 export default function HomeComponent() {
     return (
@@ -128,7 +129,8 @@ export default function HomeComponent() {
                                             <div className="row menu-items">
 
                                                 <div className="menu-item col-sm-6 col-xs-12 bb d-flex">
-                                                    <img width="100px" src="./img/BB-Thit-Heo-Trung-Cut-1.jpg" />
+                                                    {/* <img width="100px" src="./img/BB-Thit-Heo-Trung-Cut-1.jpg" /> */}
+                                                    <Image src="/img/BB-Thit-Heo-Trung-Cut-1.jpg" width={100} height={100} alt="Bánh Bao Thịt Heo Trứng Cút" />
                                                     <div>
                                                         <div className="clearfix menu-wrapper">
                                                             <h4>Bánh bao thịt heo trứng cút</h4>
@@ -140,7 +142,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <img width="100px" src="./img/BB-Xa-Xiu-1.jpg" />
+                                                    {/* <img width="100px" src="./img/BB-Xa-Xiu-1.jpg" /> */}
+                                                    <Image src="/img/BB-Xa-Xiu-1.jpg" width={100} height={100} alt="Bánh Bao Xá Xíu" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh bao xá xíu</h4>
                                                         <span className="price">48.000</span>
@@ -150,7 +153,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <img width="100px" src="./img/Cade-1.jpg" />
+                                                    {/* <img width="100px" src="./img/Cade-1.jpg" /> */}
+                                                    <Image src="/img/Cade-1.jpg" width={100} height={100} alt="Bánh Bao Cadé" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh bao Cadé</h4>
                                                         <span className="price">48.000</span>
@@ -160,7 +164,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <img width="100px" src="./img/Banh-Trai-Dao-1.jpg" />
+                                                    {/* <img width="100px" src="./img/Banh-Trai-Dao-1.jpg" /> */}
+                                                    <Image src="/img/Banh-Trai-Dao-1.jpg" width={100} height={100} alt="Bánh bao trái đào" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh bao trái đào</h4>
                                                         <span className="price">48.000</span>
@@ -170,7 +175,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <img width="100px" src="./img/banh-gio-3314.jpg" />
+                                                    {/* <img width="100px" src="./img/banh-gio-3314.jpg" /> */}
+                                                    <Image src="/img/banh-gio-3314.jpg" width={100} height={100} alt="Bánh giò" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh giò</h4>
                                                         <span className="price">48.000</span>
@@ -180,7 +186,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 starter">
-                                                    <img width="100px" src="./img/pho dac biet.png" />
+                                                    {/* <img width="100px" src="./img/pho dac biet.png" /> */}
+                                                    <Image src="/img/pho-dac-biet.png" width={100} height={100} alt="Phở Đặc Biệt" />
 
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Phở Đặc Biệt</h4>
@@ -191,7 +198,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 starter">
-                                                    <img width="100px" src="./img/pho 1 loai.png" />
+                                                    {/* <img width="100px" src="./img/pho 1 loai.png" /> */}
+                                                    <Image src="/img/pho-1-loai.png" width={100} height={100} alt="Phở Tái | Chín | Nạm | Gầu" />
 
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Phở Tái | Chín | Nạm | Gầu</h4>
@@ -211,7 +219,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 breakfast">
-                                                    <img width="100px" src="./img/my hoanh thanh.png" />
+                                                    {/* <img width="100px" src="./img/my hoanh thanh.png" /> */}
+                                                    <Image src="/img/my-hoanh-thanh.png" width={100} height={100} alt="Mì Hoành Thánh Nước" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Mì Hoành Thánh Nước</h4>
                                                         <span className="price">98.000</span>
@@ -221,7 +230,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 breakfast">
-                                                    <img width="100px" className="hthanh" src="./img/hoanh thanh kho.png" />
+                                                    {/* <img width="100px" className="hthanh" src="./img/hoanh thanh kho.png" /> */}
+                                                    <Image src="/img/hoanh-thanh-kho.png" width={100} height={100} alt="Mì Hoành Thánh Khô" />
 
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Mì Hoành Thánh Khô</h4>
@@ -232,7 +242,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <img width="100px" src="./img/banh mi xiu mai.png" />
+                                                    {/* <img width="100px" src="./img/banh mi xiu mai.png" /> */}
+                                                    <Image src="/img/banh-mi-xiu-mai.png" width={100} height={100} alt="Bánh Mì Xíu Mại" />
 
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh Mì Xíu Mại</h4>
@@ -243,7 +254,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <img width="100px" className="img-td" src="./img/banh mi ga xe.png" />
+                                                    {/* <img width="100px" className="img-td" src="./img/banh mi ga xe.png" /> */}
+                                                    <Image src="/img/banh-mi-ga-xe.png" width={100} height={100} alt="Bánh Mì Gà Nướng" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh Mì Gà Nướng</h4>
                                                         <span className="price">68.000</span>
@@ -252,7 +264,8 @@ export default function HomeComponent() {
                                                     <p>GRILLED CHICKEN BANH MI</p>
                                                 </div>
                                                 <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <img width="100px" className="img-td" src="./img/banh mi thit nuong.png" />
+                                                    {/* <img width="100px" className="img-td" src="./img/banh mi thit nuong.png" /> */}
+                                                    <Image src="/img/banh-mi-thit-nuong.png" width={100} height={100} alt="Bánh Mì Thịt Viên Nướng" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh Mì Thịt Viên Nướng</h4>
                                                         <span className="price">68.000</span>
@@ -261,7 +274,8 @@ export default function HomeComponent() {
                                                     <p>GRILLED MEATBALL BANH MI</p>
                                                 </div>
                                                 <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <img width="100px" src="./img/banh mi trung.png" />
+                                                    {/* <img width="100px" src="./img/banh mi trung.png" /> */}
+                                                    <Image src="/img/banh-mi-trung.png" width={100} height={100} alt="Bánh Mì Trứng" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Bánh Mì Trứng</h4>
                                                         <span className="price">55.000</span>
@@ -273,7 +287,8 @@ export default function HomeComponent() {
 
 
                                                 <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <img width="100px" src="./img/cha gio hai san-07.png" />
+                                                    {/* <img width="100px" src="./img/cha gio hai san-07.png" /> */}
+                                                    <Image src="/img/cha-gio-hai-san-07.png" width={100} height={100} alt="Chả Giò Hải Sản" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Chả Giò Hải Sản</h4>
                                                         <span className="price">60.000</span>
@@ -283,7 +298,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <img width="100px" className="img-td" src="./img/cha gio thit.png" />
+                                                    {/* <img width="100px" className="img-td" src="./img/cha gio thit.png" /> */}
+                                                    <Image src="/img/cha-gio-thit.png" width={100} height={100} alt="Chả Giò Thịt" />
 
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Chả Giò Thịt</h4>
@@ -294,7 +310,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <img width="100px" src="./img/hoanh thanh chien.png" />
+                                                    {/* <img width="100px" src="./img/hoanh thanh chien.png" /> */}
+                                                    <Image src="/img/hoanh-thanh-chien.png" width={100} height={100} alt="Hoành Thánh Chiên" />
 
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Hoành Thánh Chiên</h4>
@@ -305,8 +322,8 @@ export default function HomeComponent() {
                                                 </div>
 
                                                 <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <img width="100px" src="./img/khoai tay chien-07.png" />
-
+                                                    {/* <img width="100px" src="./img/khoai tay chien-07.png" /> */}
+                                                    <Image src="/img/khoai-tay-chien-07.png" width={100} height={100} alt="Khoai Tây Chiên" />
                                                     <div className="clearfix menu-wrapper">
                                                         <h4>Khoai Tây Chiên</h4>
                                                         <span className="price">50.000</span>
@@ -387,7 +404,6 @@ export default function HomeComponent() {
                                 </div>
                                 <div className="reservation-form wow fadeInUp">
                                     <ReservationForm />
-
                                 </div>
                                 <div className="reservation-footer">
                                     <p>Bạn cũng có thể gọi tới: <strong>+84 90 2222 13 82</strong> để đặt bàn trực tiếp.</p>

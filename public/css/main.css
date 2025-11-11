@@ -73,10 +73,10 @@ TABLE OF CONTENTS
    Global Styles
    ================================================ */
 
-@import "settings-panel.css";
+
 @import url(https://fonts.googleapis.com/css?family=Raleway:900,800,700,600,400,300,200,100);
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:700,600,400);
-
+@import "./settings-panel.css";
 body {
   height: 100%;
   overflow-y: scroll;
