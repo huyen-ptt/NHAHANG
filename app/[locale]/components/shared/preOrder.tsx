@@ -1,10 +1,12 @@
 
+import Image from 'next/image';
+
 export default function preOrder() {
   return (
     <>
         <div className="preloder animated">
             <div className="scoket">
-                <img src="/img/preloader.svg" alt="" />
+                <Image src="/img/preloader.svg" alt="" width={50} height={50} />
             </div>
         </div>
     </>
