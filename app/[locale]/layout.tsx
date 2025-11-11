@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import {NextIntlClientProvider} from 'next-intl';
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+
+type Params = Promise<{ locale: string }>;
+
 export const metadata: Metadata = {
   title: "The Kitchen",
   description: "Một không gian ẩm thực Việt giữa lòng sân bay, nơi mỗi vị khách đều được chào đón trước mỗi hành trình",
@@ -18,14 +24,17 @@ export const metadata: Metadata = {
   authors: [{ name: "Surjith S M" }],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({children, params}: {children: React.ReactNode, params: Params}) {
+  const {locale} = await params;
+  let messages;
+  try {
+    messages = await getMessages({locale});
+  } catch {
+    notFound();
+  }
   return (
     <>
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <meta charSet="utf-8" />
         <title>The Kitchen</title>
@@ -37,7 +46,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/main.css" />
       </head>
       <body>
-        {children}
+        <NextIntlClientProvider  locale={locale} messages={messages}>{children}</NextIntlClientProvider>
         <Script src="/js/vendor/jquery-1.11.2.min.js"></Script>
         <Script src="/js/vendor/bootstrap.min.js"></Script>
         <Script src="/js/vendor/jquery.flexslider-min.js"></Script>

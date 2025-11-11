@@ -1,10 +1,13 @@
+'use client';
 import PreOrder from "./shared/preOrder";
 import NavBar from "./navBar";
 import ReservationForm from "./shared/ReservationForm";
 import SettingsPanel from "./shared/settings-panel";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 export default function HomeComponent() {
+    const t = useTranslations();
     return (
         <>
             <PreOrder />
@@ -38,7 +41,7 @@ export default function HomeComponent() {
                                 </a>
                             </div>
                             <h1>FRESH AND FAST</h1>
-                            <h2> Khởi đầu hành trình của bạn với tinh hoa ẩm thực Việt</h2>
+                            <h2> {t('home_description')}</h2>
                         </div>
                         <div className="scroll-down hidden-xs">
                             <a href="#about">
@@ -53,7 +56,7 @@ export default function HomeComponent() {
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="page-header wow fadeInDown">
-                                        <h1>THE KITCHEN<small>CÂU CHUYỆN THƯƠNG HIỆU VÀ SỨ MỆNH</small></h1>
+                                        <h1>THE KITCHEN<small>{t('home_brand_story_section')}</small></h1>
                                     </div>
                                 </div>
                             </div>
@@ -82,11 +85,11 @@ export default function HomeComponent() {
                                 </div>
                                 <div className="col-md-8">
                                     <p style={{ textAlign: "justify" }}>
-                                        Được hình thành từ sự thấu hiểu sâu sắc về nhu cầu của hành khách khi sử dụng dịch vụ ẩm thực tại sân bay, The Kitchen ra đời với sứ mệnh: Mang đến một không gian thưởng thức ấm cúng, tiện nghi và đậm đà bản sắc Việt Nam. Mỗi món ăn không chỉ là hương vị mà còn là câu chuyện về văn hoá, tinh hoa ẩm thực Việt.
+                                        {t('home_brand_story')}
                                     </p>
                                     <br />
                                     <p style={{ textAlign: "justify" }}>
-                                        Chúng tôi mong muốn trở thành điểm dừng chân tin cậy của mọi hành khách – nơi không chỉ để nghỉ ngơi, thư giãn mà còn để tận hưởng những trải nghiệm ẩm thực độc đáo, giàu cảm xúc
+                                        {t('home_brand_mission')}
                                     </p>
                                 </div>
                             </div>
@@ -98,7 +101,7 @@ export default function HomeComponent() {
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="page-header td wow fadeInDown">
-                                        <h1>THỰC ĐƠN<small>Những món ăn được chế biến từ nguyên liệu tốt nhất</small></h1>
+                                        <h1>{t('home_menu_title')}<small>{t('home_menu_description')}</small></h1>
                                     </div>
                                 </div>
                             </div>
@@ -117,11 +120,11 @@ export default function HomeComponent() {
                                             <div className="row">
                                                 <div className="col-md-12">
                                                     <div className="menu-tags">
-                                                        <span data-filter=".starter" className="tagsort-active">PHỞ</span>
-                                                        <span data-filter=".breakfast">MÌ</span>
-                                                        <span data-filter=".dinner">BÁNH MÌ</span>
-                                                        <span data-filter=".bb">BÁNH BAO</span>
-                                                        <span data-filter=".lunch">ĂN NHẸ</span>
+                                                        <span data-filter=".starter" className="tagsort-active">{t('home_menu_category_pho')}</span>
+                                                        <span data-filter=".breakfast">{t('home_menu_category_noodles')}</span>
+                                                        <span data-filter=".dinner">{t('home_menu_category_banh_mi')}</span>
+                                                        <span data-filter=".bb">{t('home_menu_category_steamed_buns')}</span>
+                                                        <span data-filter=".lunch">{t('home_menu_category_snacks')}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -348,17 +351,17 @@ export default function HomeComponent() {
                     {/* Our features */}
                     <section className="features" id="km">
                         <div className="container">
-                        
-                              <div className="col-md-12">
+
+                            <div className="col-md-12">
                                 <div className="page-header wow fadeInDown">
-                                    <h1>CHƯƠNG TRÌNH KHUYẾN MÃI
-                                        <small>Khám phá ưu đãi ngay</small>
+                                    <h1>{t('home_promotions_title')}
+                                        <small>{t('home_promotions_subtitle')}</small>
                                     </h1>
                                 </div>
                             </div>
                             <div className="row wow fadeInUp">
 
-                               
+
                                 <div className="col-md-4 col-sm-12">
                                     <div className="features-tile">
                                         <div className="features-img">
@@ -367,7 +370,7 @@ export default function HomeComponent() {
 
                                     </div>
                                 </div>
-                                 <div className="col-md-4 col-sm-12">
+                                <div className="col-md-4 col-sm-12">
                                     <div className="features-tile">
                                         <div className="features-img">
                                             <img src="./img/Combo-poster-09.png" alt="" />
@@ -375,7 +378,7 @@ export default function HomeComponent() {
 
                                     </div>
                                 </div>
-                                 <div className="col-md-4 col-sm-12">
+                                <div className="col-md-4 col-sm-12">
                                     <div className="features-tile">
                                         <div className="features-img">
                                             <img src="./img/Combo-poster-07.png" alt="" />
@@ -393,8 +396,8 @@ export default function HomeComponent() {
                         <div className="d-flex row form-lh">
                             <div className="col-md-12">
                                 <div className="page-header wow fadeInDown">
-                                    <h1>THÔNG TIN ĐẶT BÀN
-                                        <small>Đặt bàn trực tuyến. Thông tin sẽ gửi về Email</small>
+                                    <h1>{t('home_reservation_title')}
+                                        <small>{t('home_reservation_subtitle')}</small>
                                     </h1>
                                 </div>
                             </div>
@@ -406,7 +409,7 @@ export default function HomeComponent() {
                                     <ReservationForm />
                                 </div>
                                 <div className="reservation-footer">
-                                    <p>Bạn cũng có thể gọi tới: <strong>+84 90 2222 13 82</strong> để đặt bàn trực tiếp.</p>
+                                    <p>{t('home_reservation_footer_1')} <strong>+84 90 2222 13 82</strong> {t('home_reservation_footer_2')}</p>
                                     <span></span>
                                 </div>
                             </div>
@@ -422,8 +425,7 @@ export default function HomeComponent() {
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="page-header wow fadeInDown">
-                                        <h1 className="white">HỆ THỐNG THE KITCHEN<small>Những nhà hàng thuộc hệ thống The
-                                            Kitchen</small></h1>
+                                        <h1 className="white">{t('home_footer_banner_title')}<small>{t('home_footer_banner_subtitle')}</small></h1>
                                     </div>
                                 </div>
                             </div>
@@ -436,15 +438,13 @@ export default function HomeComponent() {
                                         </div>
                                         <div className="features-content">
                                             <div className="page-header">
-                                                <h1 style={{ textAlign: "center" }}>THE KITCHEN - NHÀ GA T3</h1>
+                                                <h1 style={{ textAlign: "center" }}>{t('home_t3_title')}</h1>
 
-                                                <h1 style={{ textAlign: "center" }}><i>SÂN BAY TÂN SƠN NHẤT, TP.HCM, VIỆT NAM</i>
+                                                <h1 style={{ textAlign: "center" }}><i>{t('home_t3_subtitle')}</i>
                                                 </h1>
                                             </div>
-                                            <p>Một không gian ẩm thực Việt giữa lòng sân bay, nơi mỗi vị khách đều được chào đón
-                                                trước mỗi hành trình</p>
-                                            <p>Quý khách sau khi làm thủ tục check-in, vui lòng đi về phía đối diện cửa ra tàu bay số 17 trên tầng 3, The Kitchen hân hạnh được phục vụ
-                                                </p>
+                                            <p>{t('home_t3_paragraph_1')}</p>
+                                            <p>{t('home_t3_paragraph_2')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -467,22 +467,17 @@ export default function HomeComponent() {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-6 col-sm-12">
-                                    <h1>Về chúng tôi</h1>
-                                    <p style={{ textAlign: "justify" }}>Được hình thành từ sự thấu hiểu sâu sắc về nhu cầu của hành
-                                        khách khi sử dụng dịch vụ ẩm
-                                        thực tại sân bay, The Kitchen ra đời với sứ mệnh: Mang đến một không gian thưởng thức ấm
-                                        cúng, tiện nghi và đậm đà bản sắc Việt Nam. Mỗi món ăn không chỉ là hương vị mà còn là
-                                        câu chuyện về văn hoá, mang lại cảm nhận trọn vẹn tinh hoa ẩm thực Việt giữa hành
-                                        trình di chuyển tất bật.</p>
+                                    <h1>{t('home_footer_about_title')}</h1>
+                                    <p style={{ textAlign: "justify" }}>{t('home_footer_about_text')}</p>
                                 </div>
 
                                 <div className="col-md-6 col-sm-6">
-                                    <h1>Liên hệ</h1>
+                                    <h1>{t('home_footer_contact_title')}</h1>
                                     <div className="footer-address">
-                                        <p><i className="fa fa-map-marker"></i>82 Nguyen Huu Huan Street, Hoan Kiem Ward, Hanoi</p>
-                                        <p><i className="fa fa-phone"></i>Phone: +84 90 2222 13 82</p>
+                                        <p><i className="fa fa-map-marker"></i>{t('home_footer_contact_address')}</p>
+                                        <p><i className="fa fa-phone"></i>{t('home_footer_contact_phone')}</p>
                                         <p><i className="fa fa-envelope-o"></i><a style={{ color: "#bcbcbc" }}
-                                            href="mailto:info@consortio.vn" className="__cf_email__">info@consortio.vn</a>
+                                            href="mailto:info@consortio.vn" className="__cf_email__">{t('home_footer_contact_email')}</a>
                                         </p>
                                     </div>
                                 </div>
