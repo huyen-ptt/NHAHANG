@@ -5,9 +5,39 @@ import ReservationForm from "./shared/ReservationForm";
 import SettingsPanel from "./shared/settings-panel";
 import Image from "next/image";
 import { useTranslations } from 'next-intl';
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function HomeComponent() {
     const t = useTranslations();
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Mỗi khi pathname (hoặc locale) thay đổi → reinit Isotope
+    if (typeof window !== 'undefined' && (window as any).$) {
+      const $ = (window as any).$;
+      if ($('.menu-items').length) {
+        const defaultFilter = $('.tagsort-active').attr('data-filter');
+
+        const $grid = $('.menu-items').isotope({
+          itemSelector: '.menu-item',
+          layoutMode: 'fitRows',
+          filter: defaultFilter
+        });
+
+       $('.menu-tags').off('click').on('click', 'span', function (this: HTMLElement) {
+        $('.menu-tags span').removeClass('tagsort-active');
+        $(this).toggleClass('tagsort-active');
+
+        const filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+        });
+
+      }
+    }
+  }, [pathname]);
+
     return (
         <>
             <PreOrder />

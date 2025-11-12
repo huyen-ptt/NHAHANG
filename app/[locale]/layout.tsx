@@ -46,7 +46,7 @@ export default async function RootLayout({children, params}: {children: React.Re
         <link rel="stylesheet" href="/css/main.css" />
       </head>
       <body>
-        <NextIntlClientProvider  locale={locale} messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider  locale={locale} messages={messages}>{children}
         <Script src="/js/vendor/jquery-1.11.2.min.js"></Script>
         <Script src="/js/vendor/bootstrap.min.js"></Script>
         <Script src="/js/vendor/jquery.flexslider-min.js"></Script>
@@ -69,6 +69,7 @@ export default async function RootLayout({children, params}: {children: React.Re
         <Script src="/js/vendor/validate.js"></Script>
         <Script src="/js/reservation.js"></Script>
         <Script src="/js/main.js"></Script>
+        </NextIntlClientProvider>
       </body>
     </html>
     </>
