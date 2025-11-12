@@ -1,8 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useTranslations } from 'next-intl';
 
 export default function ReservationForm() {
+  const t = useTranslations();
+
   const [formData, setFormData] = useState({
     date: "",
     name: "",
@@ -38,7 +41,7 @@ export default function ReservationForm() {
 
       const result = await res.json();
       if (result.success) {
-        setMessage("✅ Đặt bàn thành công! Chúng tôi sẽ liên hệ sớm.");
+        setMessage(t('reservation_form_success'));
         setFormData({
           date: "",
           name: "",
@@ -50,11 +53,11 @@ export default function ReservationForm() {
           phone: "",
         });
       } else {
-        setMessage("❌ Có lỗi xảy ra: " + result.error);
+        setMessage(t('reservation_form_error') + result.error);
       }
     } catch (error) {
       console.error(error);
-      setMessage("❌ Không thể gửi thông tin. Vui lòng thử lại.");
+      setMessage(t('reservation_form_network_error'));
     } finally {
       setLoading(false);
     }
@@ -66,14 +69,14 @@ export default function ReservationForm() {
         {/* Ngày */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="datepicker">Ngày</label>
+            <label htmlFor="datepicker">{t('reservation_form_date')}</label>
             <input
               type="text"
               name="date"
               id="datepicker"
               data-date-format="dd/mm/yyyy"
               className="form-control"
-              placeholder="Chọn ngày"
+              placeholder={t('reservation_form_select_date')}
               required
               value={formData.date}
               onChange={handleChange}
@@ -85,13 +88,13 @@ export default function ReservationForm() {
         {/* Họ và tên */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="name">Họ và tên</label>
+            <label htmlFor="name">{t('reservation_form_full_name')}</label>
             <input
               type="text"
               name="name"
               id="name"
               className="form-control"
-              placeholder="Nhập họ và tên"
+              placeholder={t('reservation_form_enter_full_name')}
               required
               value={formData.name}
               onChange={handleChange}
@@ -103,13 +106,13 @@ export default function ReservationForm() {
         {/* Giờ */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="timepicker">Giờ</label>
+            <label htmlFor="timepicker">{t('reservation_form_time')}</label>
             <input
               type="text"
               name="time"
               id="timepicker"
               className="form-control"
-              placeholder="Chọn giờ"
+              placeholder={t('reservation_form_select_time')}
               required
               value={formData.time}
               onChange={handleChange}
@@ -121,13 +124,13 @@ export default function ReservationForm() {
         {/* Địa điểm */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="location">Địa điểm</label>
+            <label htmlFor="location">{t('reservation_form_location')}</label>
             <input
               type="text"
               name="location"
               id="location"
               className="form-control"
-              placeholder="Nhập địa điểm"
+              placeholder={t('reservation_form_enter_location')}
               required
               value={formData.location}
               onChange={handleChange}
@@ -139,13 +142,13 @@ export default function ReservationForm() {
         {/* Số lượng khách */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="guests">Email</label>
+            <label htmlFor="guests">{t('reservation_form_email')}</label>
             <input
               type="email"
               name="guests"
               id="guests"
               className="form-control"
-              placeholder="Email"
+              placeholder={t('reservation_form_enter_email')}
               required
               value={formData.guests}
               onChange={handleChange}
@@ -157,13 +160,13 @@ export default function ReservationForm() {
         {/* Số điện thoại */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="phone">Số điện thoại</label>
+            <label htmlFor="phone">{t('reservation_form_phone_number')}</label>
             <input
               type="text"
               name="phone"
               id="phone"
               className="form-control"
-              placeholder="Nhập số điện thoại của bạn"
+              placeholder={t('reservation_form_enter_phone_number')}
               required
               value={formData.phone}
               onChange={handleChange}
@@ -180,7 +183,7 @@ export default function ReservationForm() {
               className="btn btn-default btn-lg"
               disabled={loading}
             >
-              {loading ? "Đang gửi..." : "Đặt bàn"}
+              {loading ? t('reservation_form_submitting') : t('reservation_form_submit')}
             </button>
           </div>
         </div>
@@ -195,3 +198,4 @@ export default function ReservationForm() {
     </form>
   );
 }
+
