@@ -1362,7 +1362,11 @@ html {
 .menu {
   padding-bottom: 30px;
 }
-
+.language{
+  /* position: fixed;
+  top: 200px;
+  left: 0; */
+}
 .space60 {
   margin-bottom: 60px;
 }

@@ -2,7 +2,7 @@ import createMiddleware from 'next-intl/middleware';
 
 export default createMiddleware({
   // Các locale được hỗ trợ
-  locales: ['en', 'vi', 'ja'],
+  locales: ['en', 'vi', 'ru', 'zh'],
 
   // Locale mặc định
   defaultLocale: 'en',
