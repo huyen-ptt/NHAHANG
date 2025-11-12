@@ -3,7 +3,7 @@ export default function settingsPanel() {
         <div className="b-settings-panel">
                 <div className="settings-section">
                     <span>
-                        Boxed
+                        Boxedd
                     </span>
                     <div className="b-switch">
                         <div className="switch-handle"></div>
