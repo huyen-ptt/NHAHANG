@@ -142,196 +142,197 @@ export default function HomeComponent() {
                                     {/* <li><a href="#restaurant2" data-toggle="tab">Nhà hàng 2</a></li> */}
                                 </ul>
 
-                                <div className="tab-content">
+                       <div className="tab-content">
 
-                                    <div className="tab-pane fade in active" id="restaurant1">
-                                        <div className="food-menu wow fadeInUp">
+    <div className="tab-pane fade in active" id="restaurant1">
+        <div className="food-menu wow fadeInUp">
 
-                                            <div className="row">
-                                                <div className="col-md-12">
-                                                    <div className="menu-tags">
-                                                        <span data-filter=".starter" className="tagsort-active">{t('home_menu_category_pho')}</span>
-                                                        <span data-filter=".breakfast">{t('home_menu_category_noodles')}</span>
-                                                        <span data-filter=".dinner">{t('home_menu_category_banh_mi')}</span>
-                                                        <span data-filter=".bb">{t('home_menu_category_steamed_buns')}</span>
-                                                        <span data-filter=".lunch">{t('home_menu_category_snacks')}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="menu-tags">
+                        <span data-filter=".starter" className="tagsort-active">{t('home_menu_category_pho')}</span>
+                        <span data-filter=".breakfast">{t('home_menu_category_noodles')}</span>
+                        <span data-filter=".dinner">{t('home_menu_category_banh_mi')}</span>
+                        <span data-filter=".bb">{t('home_menu_category_steamed_buns')}</span>
+                        <span data-filter=".lunch">{t('home_menu_category_snacks')}</span>
+                    </div>
+                </div>
+            </div>
 
-                                            <div className="row menu-items">
+            <div className="row menu-items">
 
-                                                <div className="menu-item col-sm-6 col-xs-12 bb d-flex">
-                                                    <Image src="/img/BB-Thit-Heo-Trung-Cut-1.jpg" width={100} height={100} alt={t('pork_bun_quail')} />
-                                                    <div>
-                                                        <div className="clearfix menu-wrapper">
-                                                            <h4>{t('pork_bun_quail')}</h4>
-                                                            <span className="price">58.000</span>
-                                                            <div className="dotted-bg"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 bb d-flex">
+                    <Image src="/img/BB-Thit-Heo-Trung-Cut-1.jpg" width={100} height={60} alt={t('pork_bun_quail')} />
+                    <div>
+                        <div className="clearfix menu-wrapper">
+                            <h4>{t('pork_bun_quail')}</h4>
+                            <span className="price">58.000</span>
+                            <div className="dotted-bg"></div>
+                        </div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <Image src="/img/BB-Xa-Xiu-1.jpg" width={100} height={100} alt={t('char_siu_bun')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('char_siu_bun')}</h4>
-                                                        <span className="price">48.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 bb">
+                    <Image src="/img/BB-Xa-Xiu-1.jpg" width={100} height={60} alt={t('char_siu_bun')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('char_siu_bun')}</h4>
+                        <span className="price">48.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <Image src="/img/Cade-1.jpg" width={100} height={100} alt={t('custard_bun')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('custard_bun')}</h4>
-                                                        <span className="price">48.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 bb">
+                    <Image src="/img/Cade-1.jpg" width={100} height={60} alt={t('custard_bun')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('custard_bun')}</h4>
+                        <span className="price">48.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <Image src="/img/Banh-Trai-Dao-1.jpg" width={100} height={100} alt={t('peach_bun')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('peach_bun')}</h4>
-                                                        <span className="price">48.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 bb">
+                    <Image src="/img/Banh-Trai-Dao-1.jpg" width={100} height={60} alt={t('peach_bun')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('peach_bun')}</h4>
+                        <span className="price">48.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 bb">
-                                                    <Image src="/img/banh-gio-3314.jpg" width={100} height={100} alt={t('steamed_rice_dumpling')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('steamed_rice_dumpling')}</h4>
-                                                        <span className="price">48.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 bb">
+                    <Image src="/img/banh-gio-3314.jpg" width={100} height={60} alt={t('steamed_rice_dumpling')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('steamed_rice_dumpling')}</h4>
+                        <span className="price">48.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 starter">
-                                                    <Image src="/img/pho-dac-biet.png" width={100} height={100} alt={t('special_pho')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('special_pho')}</h4>
-                                                        <span className="price">118.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 starter">
+                    <Image src="/img/pho-dac-biet.png" width={100} height={93} alt={t('special_pho')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('special_pho')}</h4>
+                        <span className="price">118.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 starter">
-                                                    <Image src="/img/pho-1-loai.png" width={100} height={100} alt={t('pho_types')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('pho_types')}</h4>
-                                                        <span className="price">98.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 starter">
+                    <Image src="/img/pho-1-loai.png" width={100} height={93} alt={t('pho_types')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('pho_types')}</h4>
+                        <span className="price">98.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 starter">
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('poached_egg')}</h4>
-                                                        <span className="price">25.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 starter">
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('poached_egg')}</h4>
+                        <span className="price">25.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 breakfast">
-                                                    <Image src="/img/my-hoanh-thanh.png" width={100} height={100} alt={t('wonton_noodle_soup')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('wonton_noodle_soup')}</h4>
-                                                        <span className="price">98.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 breakfast">
+                    <Image src="/img/my-hoanh-thanh.png" width={100} height={93} alt={t('wonton_noodle_soup')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('wonton_noodle_soup')}</h4>
+                        <span className="price">98.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 breakfast">
-                                                    <Image src="/img/hoanh-thanh-kho.png" width={100} height={100} alt={t('dry_wonton_noodle')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('dry_wonton_noodle')}</h4>
-                                                        <span className="price">98.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 breakfast">
+                    <Image src="/img/hoanh-thanh-kho.png" width={100} height={93} alt={t('dry_wonton_noodle')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('dry_wonton_noodle')}</h4>
+                        <span className="price">98.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <Image src="/img/banh-mi-xiu-mai.png" width={100} height={100} alt={t('meatball_banh_mi')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('meatball_banh_mi')}</h4>
-                                                        <span className="price">85.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 dinner">
+                    <Image src="/img/banhmixiumai.png" width={100} height={60} alt={t('meatball_banh_mi')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('meatball_banh_mi')}</h4>
+                        <span className="price">85.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <Image src="/img/banh-mi-ga-xe.png" width={100} height={100} alt={t('grilled_chicken_banh_mi')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('grilled_chicken_banh_mi')}</h4>
-                                                        <span className="price">68.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 dinner">
+                    <Image src="/img/banh-mi-ga-xe.png" width={100} height={60} alt={t('grilled_chicken_banh_mi')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('grilled_chicken_banh_mi')}</h4>
+                        <span className="price">68.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <Image src="/img/banh-mi-thit-nuong.png" width={100} height={100} alt={t('grilled_meatball_banh_mi')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('grilled_meatball_banh_mi')}</h4>
-                                                        <span className="price">68.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 dinner">
+                    <Image src="/img/banh-mi-thit-nuong.png" width={100} height={60} alt={t('grilled_meatball_banh_mi')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('grilled_meatball_banh_mi')}</h4>
+                        <span className="price">68.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 dinner">
-                                                    <Image src="/img/banh-mi-trung.png" width={100} height={100} alt={t('egg_banh_mi')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('egg_banh_mi')}</h4>
-                                                        <span className="price">55.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 dinner">
+                    <Image src="/img/banhmitrung.png" width={100} height={60} alt={t('egg_banh_mi')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('egg_banh_mi')}</h4>
+                        <span className="price">55.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <Image src="/img/cha-gio-hai-san-07.png" width={100} height={100} alt={t('seafood_spring_roll')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('seafood_spring_roll')}</h4>
-                                                        <span className="price">60.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 lunch">
+                    <Image src="/img/cha-gio-hai-san-07.png" width={100} height={70} alt={t('seafood_spring_roll')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('seafood_spring_roll')}</h4>
+                        <span className="price">60.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <Image src="/img/cha-gio-thit.png" width={100} height={100} alt={t('meat_spring_roll')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('meat_spring_roll')}</h4>
-                                                        <span className="price">60.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 lunch">
+                    <Image src="/img/cha-gio-thit.png" width={100} height={70} alt={t('meat_spring_roll')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('meat_spring_roll')}</h4>
+                        <span className="price">60.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <Image src="/img/hoanh-thanh-chien.png" width={100} height={100} alt={t('fried_wontons')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('fried_wontons')}</h4>
-                                                        <span className="price">50.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
+                <div className="menu-item col-sm-6 col-xs-12 lunch">
+                    <Image src="/img/hoanh-thanh-chien.png" width={100} height={82} alt={t('fried_wontons')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('fried_wontons')}</h4>
+                        <span className="price">50.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
 
-                                                <div className="menu-item col-sm-6 col-xs-12 lunch">
-                                                    <Image src="/img/khoai-tay-chien-07.png" width={100} height={100} alt={t('french_fries')} />
-                                                    <div className="clearfix menu-wrapper">
-                                                        <h4>{t('french_fries')}</h4>
-                                                        <span className="price">50.000</span>
-                                                        <div className="dotted-bg"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                <div className="menu-item col-sm-6 col-xs-12 lunch">
+                    <Image src="/img/khoai-tay-chien-07.png" width={100} height={80} alt={t('french_fries')} />
+                    <div className="clearfix menu-wrapper">
+                        <h4>{t('french_fries')}</h4>
+                        <span className="price">50.000</span>
+                        <div className="dotted-bg"></div>
+                    </div>
+                </div>
+            </div>
 
-                                        </div>
-                                    </div>
+        </div>
+    </div>
 
-                                    <div className="tab-pane fade" id="restaurant2">
-                                        <p>(Chưa có thực đơn cho Nhà hàng 2)</p>
-                                    </div>
-                                </div>
+    <div className="tab-pane fade" id="restaurant2">
+        <p>(Chưa có thực đơn cho Nhà hàng 2)</p>
+    </div>
+</div>
+
                             </div>
 
 

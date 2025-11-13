@@ -637,6 +637,7 @@ fieldset[disabled] .btn-default.active {
   .navbar-fixed-top {
     top: 0;
     border-width: 0 0 1px;
+    padding: 10px 0;
   }
 
   .navbar-collapse.collapse {
@@ -686,7 +687,7 @@ fieldset[disabled] .btn-default.active {
   }
 
   .navbar .navbar-brand {
-    padding: 8px 0px 8px 15px;
+    padding: 1px 0px 8px 15px;
   }
 }
 
