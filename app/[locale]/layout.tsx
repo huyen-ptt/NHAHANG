@@ -3,6 +3,7 @@ import Script from "next/script";
 import {NextIntlClientProvider} from 'next-intl';
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
+import "../../public/css/datepicker.css";
 
 type Params = Promise<{ locale: string }>;
 
@@ -47,14 +48,14 @@ export default async function RootLayout({children, params}: {children: React.Re
       </head>
       <body>
         <NextIntlClientProvider  locale={locale} messages={messages}>{children}
-        <Script src="/js/vendor/jquery-1.11.2.min.js"></Script>
+        <Script src="/js/vendor/jquery-1.11.2.min.js" ></Script>
         <Script src="/js/vendor/bootstrap.min.js"></Script>
         <Script src="/js/vendor/jquery.flexslider-min.js"></Script>
         <Script src="/js/vendor/spectragram.js"></Script>
         <Script src="/js/vendor/owl.carousel.min.js"></Script>
         <Script src="/js/vendor/velocity.min.js"></Script>
         <Script src="/js/vendor/velocity.ui.min.js"></Script>
-        <Script src="/js/vendor/bootstrap-datepicker.min.js"></Script>
+        {/* <Script src="/js/vendor/bootstrap-datepicker.min.js"></Script> */}
         <Script src="/js/vendor/bootstrap-clockpicker.min.js"></Script>
         <Script src="/js/vendor/jquery.magnific-popup.min.js"></Script>
         <Script src="/js/vendor/isotope.pkgd.min.js"></Script>

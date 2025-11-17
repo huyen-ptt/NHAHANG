@@ -1,85 +1,107 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { useTranslations } from 'next-intl';
+import { FormEvent, useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import DatePicker from "./input/date-picker";
 
 export default function ReservationForm() {
   const t = useTranslations();
+  useEffect(() => {
+    console.log(typeof window)
+    if ((window as any).$) {
+      const $ = (window as any).$;
 
-  const [formData, setFormData] = useState({
-    date: "",
+      if (!$("#datepicker").length) return;
+
+      $("#datepicker").datepicker({
+        autoclose: true,
+        format: "dd/mm/yyyy",
+        todayHighlight: true
+      });
+
+      $("#datepicker").on("changeDate", function (this: HTMLElement) {
+        const value = $(this).val();
+        setFormData((prev) => ({ ...prev, date: value }));
+      });
+    }
+  }, []);
+
+  type FormData = {
+    date: Date;
+    name: string;
+    time: string;
+    location: string;
+    email: string;
+    phone: string;
+  };
+
+  const [formData, setFormData] = useState<FormData>({
+    date: new Date(),
     name: "",
     time: "",
     location: "",
-    flight: "",
     email: "",
-    guests: "",
     phone: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  // Cập nhật khi nhập
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    console.log(name, value);
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Submit form
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
+    console.log("Submitting form data:", formData);
+    // try {
+    //   const res = await fetch("/api/booking", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(formData),
+    //   });
 
-    try {
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    //   const result = await res.json();
 
-      const result = await res.json();
-      if (result.success) {
-        setMessage(t('reservation_form_success'));
-        setFormData({
-          date: "",
-          name: "",
-          time: "",
-          location: "",
-          flight: "",
-          email: "",
-          guests: "",
-          phone: "",
-        });
-      } else {
-        setMessage(t('reservation_form_error') + result.error);
-      }
-    } catch (error) {
-      console.error(error);
-      setMessage(t('reservation_form_network_error'));
-    } finally {
-      setLoading(false);
-    }
+    //   if (result.success) {
+    //     setMessage(t("reservation_form_success"));
+    //     setFormData({
+    //       date: new Date(),
+    //       name: "",
+    //       time: "",
+    //       location: "",
+    //       email: "",
+    //       phone: "",
+    //     });
+    //   } else {
+    //     setMessage(t("reservation_form_error") + result.error);
+    //   }
+    // } catch (err) {
+    //   console.error(err);
+    //   setMessage(t("reservation_form_network_error"));
+    // } finally {
+    //   setLoading(false);
+    // }
+
   };
 
   return (
     <form id="reservationform" method="POST" onSubmit={handleSubmit}>
       <div className="row">
+
         {/* Ngày */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
             <label htmlFor="datepicker">{t('reservation_form_date')}</label>
-            <input
-              type="text"
-              name="date"
-              id="datepicker"
-              data-date-format="dd/mm/yyyy"
-              className="form-control"
-              placeholder={t('reservation_form_select_date')}
-              required
+            <DatePicker
               value={formData.date}
-              onChange={handleChange}
+              onChange={(date) => setFormData((prev) => ({ ...prev, date: date || new Date() }))}
+              minDate={new Date()}
             />
             <i className="fa fa-calendar-o"></i>
           </div>
@@ -88,13 +110,13 @@ export default function ReservationForm() {
         {/* Họ và tên */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="name">{t('reservation_form_full_name')}</label>
+            <label htmlFor="name">{t("reservation_form_full_name")}</label>
             <input
               type="text"
               name="name"
               id="name"
               className="form-control"
-              placeholder={t('reservation_form_enter_full_name')}
+              placeholder={t("reservation_form_enter_full_name")}
               required
               value={formData.name}
               onChange={handleChange}
@@ -106,13 +128,13 @@ export default function ReservationForm() {
         {/* Giờ */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="timepicker">{t('reservation_form_time')}</label>
+            <label htmlFor="timepicker">{t("reservation_form_time")}</label>
             <input
               type="text"
               name="time"
               id="timepicker"
               className="form-control"
-              placeholder={t('reservation_form_select_time')}
+              placeholder={t("reservation_form_select_time")}
               required
               value={formData.time}
               onChange={handleChange}
@@ -124,14 +146,13 @@ export default function ReservationForm() {
         {/* Địa điểm */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="location">{t('reservation_form_location')}</label>
+            <label htmlFor="location">{t("reservation_form_location")}</label>
             <input
               type="text"
               name="location"
               id="location"
               className="form-control"
-              placeholder={t('reservation_form_enter_location')}
-              required
+              placeholder={t("reservation_form_enter_location")}
               value={formData.location}
               onChange={handleChange}
             />
@@ -139,18 +160,18 @@ export default function ReservationForm() {
           </div>
         </div>
 
-        {/* Số lượng khách */}
+        {/* Email */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="guests">{t('reservation_form_email')}</label>
+            <label htmlFor="email">{t("reservation_form_email")}</label>
             <input
               type="email"
-              name="guests"
-              id="guests"
+              name="email"
+              id="email"
               className="form-control"
-              placeholder={t('reservation_form_enter_email')}
+              placeholder={t("reservation_form_enter_email")}
               required
-              value={formData.guests}
+              value={formData.email}
               onChange={handleChange}
             />
             <i className="fa fa-user"></i>
@@ -160,13 +181,13 @@ export default function ReservationForm() {
         {/* Số điện thoại */}
         <div className="col-md-4 col-sm-6">
           <div className="form-group">
-            <label htmlFor="phone">{t('reservation_form_phone_number')}</label>
+            <label htmlFor="phone">{t("reservation_form_phone_number")}</label>
             <input
               type="text"
               name="phone"
               id="phone"
               className="form-control"
-              placeholder={t('reservation_form_enter_phone_number')}
+              placeholder={t("reservation_form_enter_phone_number")}
               required
               value={formData.phone}
               onChange={handleChange}
@@ -175,7 +196,7 @@ export default function ReservationForm() {
           </div>
         </div>
 
-        {/* Nút submit */}
+        {/* Submit */}
         <div className="col-md-12 col-sm-12">
           <div className="reservation-btn">
             <button
@@ -183,12 +204,12 @@ export default function ReservationForm() {
               className="btn btn-default btn-lg"
               disabled={loading}
             >
-              {loading ? t('reservation_form_submitting') : t('reservation_form_submit')}
+              {loading ? t("reservation_form_submitting") : t("reservation_form_submit")}
             </button>
           </div>
         </div>
 
-        {/* Thông báo kết quả */}
+        {/* Thông báo */}
         {message && (
           <div className="col-md-12 text-center" style={{ marginTop: "10px" }}>
             <p>{message}</p>
@@ -198,4 +219,3 @@ export default function ReservationForm() {
     </form>
   );
 }
-

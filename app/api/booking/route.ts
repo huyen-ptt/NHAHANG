@@ -12,9 +12,7 @@ export async function POST(req: Request) {
       phone = "",
       guests = "",
       date = "",
-      time = "",
-      location = "",
-      flight = "",
+      time = ""
     } = body;
 
     const transporter = nodemailer.createTransport({
@@ -38,8 +36,6 @@ Số điện thoại: ${phone}
 Số lượng khách: ${guests}
 Ngày: ${date}
 Giờ: ${time}
-Địa điểm: ${location}
-Chuyến bay: ${flight}
       `,
     };
 
