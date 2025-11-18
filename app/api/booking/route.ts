@@ -60,7 +60,8 @@ export async function POST(req: Request) {
       .replace("{{ADDRESS_LABEL}}", t.address_label)
       .replace("{{ADDRESS}}", t.address)
       .replace("{{CONTACT_LABEL}}", t.contact_label)
-      .replace("{{CONTACT}}", t.contact);
+      .replace("{{CONTACT}}", t.contact)
+      .replace("{{LANG}}", locale);
 
     // ========================================================
     // 3️⃣ Replace dynamic fields
