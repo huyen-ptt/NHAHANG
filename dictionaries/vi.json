@@ -23,7 +23,7 @@
   "home_footer_banner_title": "Hệ thống The Kitchen",
   "home_footer_banner_subtitle": "Những nhà hàng thuộc hệ thống The Kitchen",
   "nav_home": "Trang chủ",
-   "pork_bun_quail": "Bánh bao thịt heo trứng cút",
+  "pork_bun_quail": "Bánh bao thịt heo trứng cút",
   "char_siu_bun": "Bánh bao xá xíu",
   "custard_bun": "Bánh bao Cadé",
   "peach_bun": "Bánh bao trái đào",
@@ -66,7 +66,7 @@
   "reservation_form_success": "Đặt bàn thành công! Chúng tôi sẽ liên hệ sớm.",
   "reservation_form_error": "Đã có lỗi xảy ra: ",
   "reservation_form_network_error": "Không thể gửi thông tin. Vui lòng thử lại.",
-   "home_t3_title": "THE KITCHEN - NHÀ GA T3",
+  "home_t3_title": "THE KITCHEN - NHÀ GA T3",
   "home_t3_subtitle": "SÂN BAY TÂN SƠN NHẤT, TP.HCM, VIỆT NAM",
   "home_t3_paragraph_1": "Một không gian ẩm thực Việt giữa lòng sân bay, nơi mỗi vị khách đều được chào đón trước mỗi hành trình.",
   "home_t3_paragraph_2": "Quý khách sau khi làm thủ tục check-in, vui lòng đi về phía đối diện cửa ra tàu bay số 17 trên tầng 3, The Kitchen hân hạnh được phục vụ.",
@@ -75,5 +75,16 @@
   "home_footer_contact_title": "Liên hệ",
   "home_footer_contact_address": "82 Nguyễn Hữu Huân, Phường Hoàn Kiếm, Hà Nội",
   "home_footer_contact_phone": "Điện thoại: +84 90 2222 13 82",
-  "home_footer_contact_email": "Email: info@consortio.vn"
+  "home_footer_contact_email": "Email: info@consortio.vn",
+  "email": {
+    "subject": "Xác nhận đặt bàn - The Kitchen",
+    "title": "Lời nhắc đặt bàn",
+    "subtitle": "The Kitchen luôn sẵn lòng được phục vụ bạn",
+    "restaurant_name": "The Kitchen",
+    "note_title": "Ghi chú đặt bàn",
+    "address_label": "Địa chỉ nhà hàng:",
+    "address": "THE KITCHEN - TẦNG 3, NHÀ GA HÀNH KHÁCH QUỐC NỘI T3\nSÂN BAY TÂN SƠN NHẤT, TP.HCM, VIỆT NAM",
+    "contact_label": "Liên hệ hỗ trợ:",
+    "contact": "(+84) 90 2222 13 82 (Phone / SMS / Zalo / WhatsApp)"
+  }
 }
