@@ -57,8 +57,8 @@
   "home_footer_contact_address": "越南河内还剑区阮友桓街82号",
   "home_footer_contact_phone": "电话：+84 90 2222 13 82",
   "home_footer_contact_email": "电子邮件：info@consortio.vn",
-    "home_fresh_fast": "新鲜与快捷",
-     "pork_bun_quail": "鹌鹑蛋猪肉包",
+  "home_fresh_fast": "新鲜与快捷",
+  "pork_bun_quail": "鹌鹑蛋猪肉包",
   "char_siu_bun": "叉烧包",
   "custard_bun": "奶黄包",
   "peach_bun": "寿桃包",
@@ -75,5 +75,16 @@
   "seafood_spring_roll": "海鲜春卷",
   "meat_spring_roll": "肉春卷",
   "fried_wontons": "炸云吞",
-  "french_fries": "薯条"
+  "french_fries": "薯条",
+  "email": {
+    "subject": "餐厅预订确认 - The Kitchen",
+    "title": "预订提醒",
+    "subtitle": "The Kitchen 随时为您服务",
+    "restaurant_name": "The Kitchen",
+    "note_title": "预订备注",
+    "address_label": "餐厅地址：",
+    "address": "THE KITCHEN - 3楼，国内航站楼 T3\n新山一机场，胡志明市，越南",
+    "contact_label": "客服联系方式：",
+    "contact": "(+84) 90 2222 13 82（电话 / SMS / Zalo / WhatsApp）"
+  }
 }

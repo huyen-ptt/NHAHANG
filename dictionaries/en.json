@@ -1,5 +1,5 @@
 {
-    "home_fresh_fast": "FRESH AND FAST",
+  "home_fresh_fast": "FRESH AND FAST",
   "server_component_welcome": "Welcome",
   "counter_increment": "Increment",
   "counter_decrement": "Decrement",
@@ -24,7 +24,7 @@
   "home_footer_banner_title": "The Kitchen Network",
   "home_footer_banner_subtitle": "Member Restaurants of The Kitchen",
   "nav_home": "Home",
-   "pork_bun_quail": "Pork Bun with Quail Eggs",
+  "pork_bun_quail": "Pork Bun with Quail Eggs",
   "char_siu_bun": "Char Siu Bun",
   "custard_bun": "Custard Bun",
   "peach_bun": "Peach-shaped Bun",
@@ -66,7 +66,7 @@
   "reservation_form_success": "Reservation successful! We will contact you soon.",
   "reservation_form_error": "An error occurred: ",
   "reservation_form_network_error": "Unable to send information. Please try again.",
-   "home_t3_title": "THE KITCHEN - TERMINAL T3",
+  "home_t3_title": "THE KITCHEN - TERMINAL T3",
   "home_t3_subtitle": "TAN SON NHAT AIRPORT, HO CHI MINH CITY, VIETNAM",
   "home_t3_paragraph_1": "A Vietnamese culinary space in the heart of Terminal 3 - Tan Son Nhat Internaltional Airport, where every guest is warmly welcomed before each journey.",
   "home_t3_paragraph_2": "After completing your check-in procedures, please proceed to the area opposite Gate 17 on the 3rd floor.",
@@ -75,5 +75,16 @@
   "home_footer_contact_title": "Contact",
   "home_footer_contact_address": "82 Nguyen Huu Huan Street, Hoan Kiem Ward, Hanoi",
   "home_footer_contact_phone": "Phone: +84 90 2222 13 82",
-  "home_footer_contact_email": "Email: info@consortio.vn"
+  "home_footer_contact_email": "Email: info@consortio.vn",
+  "email": {
+    "subject": "Reservation Confirmation - The Kitchen",
+    "title": "Reservation Reminder",
+    "subtitle": "The Kitchen is always happy to serve you",
+    "restaurant_name": "The Kitchen",
+    "note_title": "Reservation Note",
+    "address_label": "Restaurant Address:",
+    "address": "THE KITCHEN - FLOOR 3, DOMESTIC TERMINAL T3\nTAN SON NHAT AIRPORT, HO CHI MINH CITY, VIETNAM",
+    "contact_label": "Support Contact:",
+    "contact": "(+84) 90 2222 13 82 (Phone / SMS / Zalo / WhatsApp)"
+  }
 }

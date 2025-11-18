@@ -75,5 +75,16 @@
   "seafood_spring_roll": "Спринг-роллы с морепродуктами",
   "meat_spring_roll": "Спринг-роллы с мясом",
   "fried_wontons": "Жареные вонтоны",
-  "french_fries": "Картофель фри"
+  "french_fries": "Картофель фри",
+  "email": {
+    "subject": "Подтверждение бронирования — The Kitchen",
+    "title": "Напоминание о бронировании",
+    "subtitle": "The Kitchen всегда рады обслужить вас",
+    "restaurant_name": "The Kitchen",
+    "note_title": "Примечание к бронированию",
+    "address_label": "Адрес ресторана:",
+    "address": "THE KITCHEN — 3-Й ЭТАЖ, ВНУТРЕННИЙ ТЕРМИНАЛ T3\nАЭРОПОРТ ТАНЬСОННЯТ, ХОШИМИН, ВЬЕТНАМ",
+    "contact_label": "Контакт для поддержки:",
+    "contact": "(+84) 90 2222 13 82 (Телефон / SMS / Zalo / WhatsApp)"
+  }
 }
