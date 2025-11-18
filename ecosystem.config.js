@@ -4,7 +4,7 @@ module.exports = {
       name: 'thekitchen',
       script: 'node_modules/next/dist/bin/next',
       args: 'start -p 4011',
-      cwd: 'E:\\TheKitchen_2',
+      cwd: 'C:\\inetpub\\wwwroot\\TheKitchen\\NHAHANG',
       env: {
         NODE_ENV: 'production',
         PORT: 4011
