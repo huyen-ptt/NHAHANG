@@ -549,15 +549,15 @@ $(function() {
        ================================================ */
 
     //Vegas Slider
-    $("#intro3 .home").vegas({
-        slides: [{
-            src: "img/fullImages/pic1.jpg"
-        }, {
-            src: "img/fullImages/pic2.jpg"
-        }, {
-            src: "img/fullImages/pic3.jpg"
-        }]
-    });
+    // $("#intro3 .home").vegas({
+    //     slides: [{
+    //         src: "img/fullImages/pic1.jpg"
+    //     }, {
+    //         src: "img/fullImages/pic2.jpg"
+    //     }, {
+    //         src: "img/fullImages/pic3.jpg"
+    //     }]
+    // });
 
     /* ================================================
        Stellar Parallax
