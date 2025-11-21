@@ -62,7 +62,7 @@ export default async function RootLayout({children, params}: {children: React.Re
         <Script src="/js/vendor/slick.min.js"></Script>
         <Script src="/js/vendor/wow.min.js"></Script>
         <Script src="/js/animation.js"></Script>
-        <Script src="/js/vendor/vegas/vegas.min.js"></Script>
+        {/* <Script src="/js/vendor/vegas/vegas.min.js"></Script> */}
         <Script src="/js/vendor/jquery.mb.YTPlayer.js"></Script>
         <Script src="/js/vendor/jquery.stellar.js"></Script>
         <Script src="/js/vendor/mc/jquery.ketchup.all.min.js"></Script>
